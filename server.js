@@ -272,7 +272,7 @@ function launchService() {
 //launchService();
 var CronJob = require('cron').CronJob;
 new CronJob({
-  cronTime: '*/1 * * * *', //15 seconds after every minute
+  cronTime: '*/50 * * * *', 
   onTick: launchService,
   start: true
 });
