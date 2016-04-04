@@ -196,7 +196,7 @@ AlertasService.prototype = {
             for (var index = 0; index < listadoAlertas.numNotis; index++) {
                 var alerta = listadoAlertas.GetAlerta(index);
                 yield sendAlertFnc(alerta, bot, loopIterator); //send Img and txt 
-                sleep.sleep(2); //telegram error << too many request, try later >>
+                sleep.sleep(2); //telegram error << too many request, try later >>, block the thread; do not use in high throughput server
             }
             mainFlow.next(); //all alerts sended, continue main flow
         }(this.listadoAlertas, this.SendAlertaToTelegramBot, this.bot);
