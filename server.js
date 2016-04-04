@@ -67,7 +67,7 @@ ListaAlertas.prototype = {
     constructor: ListaAlertas,
 
     Fill: function(jsString, lastAlert) {
-        var fillFunction = new Function('listadoNotis', jsString);
+        var fillFunction = new Function('listadoNotis', jsString);//SECURITY WARNING, do not use in production
         fillFunction(this);
         this.numNotis = this.arrayAlerts.length;
     },
